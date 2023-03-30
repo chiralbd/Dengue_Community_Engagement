@@ -1,0 +1,34 @@
+---
+title: "The role of community participation and social engagement in the prevention and control of dengue fever in Dhaka City"
+author: "Md. Jubayer Hossain"
+format: html
+editor: visual
+---
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidyr)
+library(stringr)
+library(janitor)
+library(gtsummary)
+library(readxl)
+```
+
+```{r}
+data <- read_excel("data/dengue_community_cleaned.xlsx")
+head(data)
+```
+
+```{r}
+# Table 1: Demographic information
+table1 <- data %>% 
+  select(1:4) %>% 
+  tbl_summary(missing = "no", 
+              type = all_categorical() ~ "categorical") %>% 
+  as_flex_table() 
+table1 
+save_as_docx(table1, path = "tables/Table1.docx")
+```
+
+
+
