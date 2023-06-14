@@ -29,6 +29,3 @@ table1 <- data %>%
 table1 
 save_as_docx(table1, path = "tables/Table1.docx")
 ```
-
-
-
